@@ -1,4 +1,4 @@
-package com.ainix.zikapplication;
+package com.ainix.mp3;
 
 import org.junit.Test;
 

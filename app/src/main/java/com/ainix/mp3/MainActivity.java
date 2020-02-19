@@ -1,4 +1,4 @@
-package com.ainix.zikapplication;
+package com.ainix.mp3;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+
 
 public class MainActivity extends AppCompatActivity {
     MediaPlayer mp;
@@ -67,12 +68,14 @@ private Button playBtn,pauseBtn,nextBtn;
     }
     public void nextSong(){
         num++;
+        num %= listContent.length;
         mp.stop();
-        mp=MediaPlayer.create(this,resId[num]);
+        mp = MediaPlayer.create(this,resId[num]);
         mp.start();
     }
     public  void prevSong(){
         num--;
+        num = (num == -1)? listContent.length-1 : num;
         mp.stop();
         mp=MediaPlayer.create(this,resId[num]);
         mp.start();
